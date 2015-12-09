@@ -1,9 +1,9 @@
-default: sftpd sftp
+all: sftpd sftp
 
-sftpd:
+sftpd: 
 	g++ src/FTPd.cpp src/Server.hpp -o ./bin/sftpd -Wall -Werror -std=c++11 -lpthread
 
-sftp:
+sftp: 
 	g++ src/FTPClient.cpp -o ./bin/sftp -Wall -Werror -std=c++11
 
 clean:

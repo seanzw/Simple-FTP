@@ -1,6 +1,3 @@
-#ifndef FTP_SERVER_H
-#define FTP_SERVER_H
-
 #include <map>
 #include <regex>
 #include <utility>
@@ -29,6 +26,7 @@ protected:
         SESSION_WORKING
     };
 
+    /* All the supported commands. */
     enum Command {
         ERR,
         USER,
@@ -450,12 +448,6 @@ private:
     const static map<int, string> replies;
 };
 
-int main() {
-    FTPServer server(9999, "log.txt");
-    server.start();
-    return 0;
-}
-
 const map<string, FTPServer::Command> FTPServer::dict {
     make_pair(  "USER",   USER  ),
     make_pair(  "PASS",   PASS  ),
@@ -484,4 +476,8 @@ const map<int, string> FTPServer::replies {
     make_pair(501, "501 syntax error in arguments\n")
 };
 
-#endif
+int main() {
+    FTPServer server(9999, "log.txt");
+    server.start();
+    return 0;
+}
