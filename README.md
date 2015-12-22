@@ -38,8 +38,8 @@ Now it's time to start the client. Open another terminal and type the following 
 ```
 
 Here is a simple screen shot for the client.
-<img src="img/client.png" style="float: center"/>
 
+<img src="img/client.png" style="float: center;"/>
 
 ### Concurrency
 One key problem for a server is to handle concurrency. There are basically two way to do this, multiple threads and pending queue. Here I simply used `select()` method to model a pending queue for multiple cilents. Each time the server selects one client and handle its request. After that it handles next one and this goes for an infinite loop.
